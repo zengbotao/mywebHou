@@ -15,6 +15,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 @CacheConfig(cacheNames = "md")
 @RestController
@@ -66,6 +67,19 @@ public class MdController {
         return new Result(code,data,msg);
     }
 
+    //    条件分页查询
+    @GetMapping("/all")
+    public  Result Wrapperall(){
+        LambdaQueryWrapper<Md> lqw = new LambdaQueryWrapper<>();
+        lqw.select(Md::getId,Md::getTitle);
+        List<Md> md=mdMapper.selectList(lqw);
+        int len=md.size();
+        md= md.subList(len-11,len-1);
+        System.out.println(md.size());
+        Integer code = md != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = md != null ? "" : "数据查询失败，请重试！";
+        return new Result(code,md,msg);
+    }
 
 }
 
