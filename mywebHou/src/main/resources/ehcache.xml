@@ -41,4 +41,14 @@
             timeToLiveSeconds="360"
             maxElementsOnDisk="1000000"
             memoryStoreEvictionPolicy="LRU" />
+    <cache
+            name="book"
+            eternal="false"
+            diskPersistent="false"
+            maxElementsInMemory="10000"
+            overflowToDisk="true"
+            timeToIdleSeconds="360"
+            timeToLiveSeconds="360"
+            maxElementsOnDisk="1000000"
+            memoryStoreEvictionPolicy="LRU" />
 </ehcache>
