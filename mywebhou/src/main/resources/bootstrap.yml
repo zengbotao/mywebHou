@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: mywebhou
+  cloud:
+    nacos:
+      server-addr: nacos:8848 # nacos地址
+      config:
+        file-extension: yml # 文件后缀名
+        enabled: true
