@@ -8,7 +8,7 @@ import lombok.Data;
 import java.io.Serializable;
 import java.sql.Timestamp;
 @Data
-@TableName("book")
+@TableName("gpfp")
 public class Book implements Serializable{
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

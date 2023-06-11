@@ -6,7 +6,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://mysql:3306/tbl_md?serverTimezone=UTC&useSSL=false #..........................记得改
+    url: jdbc:mysql://localhost:3306/tbl_md?serverTimezone=UTC&useSSL=false #..........................记得改mysql://mysql:3306/tbl_md?serverTimezone=UTC&useSSL=false
     username: root
     password: Qq289848
   profiles:
@@ -18,15 +18,20 @@ spring:
     type: ehcache
     ehcache:
       config: classpath:/ehcache.xml
-
+  application:
+    name: mywebhou
+  cloud:
+    nacos:
+      server-addr: http://192.168.0.172:8848 #      server-addr: nacos:8848 # nacos地址
+      config:
+        file-extension: yml # 文件后缀名
+        enabled: true
 #设置Mp相关的配置
 mybatis-plus:
   global-config:
     banner: off # 关闭mybatisplus启动图标
-#    db-config:
-#      table-prefix: tbl_
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印SQL日志到控制台
+
+
 
 
 ---
